@@ -148,7 +148,6 @@ C:\Users\kek44\source\repos\MojAspNetProjekt\CoffeeShopMVC\CoffeeShopMVC\obj\Deb
 C:\Users\kek44\source\repos\MojAspNetProjekt\CoffeeShopMVC\CoffeeShopMVC\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.CoffeeShopMVC.props
 C:\Users\kek44\source\repos\MojAspNetProjekt\CoffeeShopMVC\CoffeeShopMVC\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.CoffeeShopMVC.props
 C:\Users\kek44\source\repos\MojAspNetProjekt\CoffeeShopMVC\CoffeeShopMVC\obj\Debug\net8.0\staticwebassets.pack.json
-C:\Users\kek44\source\repos\MojAspNetProjekt\CoffeeShopMVC\CoffeeShopMVC\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\kek44\source\repos\MojAspNetProjekt\CoffeeShopMVC\CoffeeShopMVC\obj\Debug\net8.0\CoffeeSh.4BDBF42A.Up2Date
 C:\Users\kek44\source\repos\MojAspNetProjekt\CoffeeShopMVC\CoffeeShopMVC\obj\Debug\net8.0\CoffeeShopMVC.dll
 C:\Users\kek44\source\repos\MojAspNetProjekt\CoffeeShopMVC\CoffeeShopMVC\obj\Debug\net8.0\refint\CoffeeShopMVC.dll
