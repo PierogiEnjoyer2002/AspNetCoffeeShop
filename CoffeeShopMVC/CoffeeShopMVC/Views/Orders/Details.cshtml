@@ -1,42 +1,40 @@
 ﻿@model CoffeeShopMVC.Models.Order
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Szczegóły zamówienia";
 }
 
-<h1>Details</h1>
+<h2>Podsumowanie zamówienia</h2>
 
 <div>
-    <h4>Order</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.UserId)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.UserId)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.OrderDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.OrderDate)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TotalPrice)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.TotalPrice)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CustomerInfo)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CustomerInfo.DeliveryAddress)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.OrderId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <p>Numer zamówienia: @Model.OrderId</p>
+    <p>Data: @Model.OrderDate.ToShortDateString()</p>
+    <p>Imię: @Model.CustomerInfo.FirstName</p>
+    <p>Nazwisko: @Model.CustomerInfo.LastName</p>
+    <p>Telefon: @Model.CustomerInfo.Phone</p>
+    <p>Adres dostawy: @Model.CustomerInfo.DeliveryAddress</p>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Produkt</th>
+                <th>Ilość</th>
+                <th>Cena (szt.)</th>
+                <th>Razem</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.OrderItems)
+            {
+                <tr>
+                    <td>@item.Product?.Name</td>
+                    <td>@item.Quantity</td>
+                    <td>@item.UnitPrice</td>
+                    <td>@(item.Quantity * item.UnitPrice)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <p><strong>Łączna kwota: @Model.TotalPrice</strong></p>
 </div>

@@ -1,0 +1,48 @@
+﻿@model IEnumerable<CoffeeShopMVC.Models.Order>
+
+@{
+    ViewData["Title"] = "Zamówienia (Admin)";
+}
+
+<h2>Zamówienia złożone w systemie</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>OrderId</th>
+            <th>Data zamówienia</th>
+            <th>Klient</th>
+            <th>Łączna kwota</th>
+            <th>Liczba pozycji</th>
+            <th>Szczegóły</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in Model)
+        {
+            var itemCount = order.OrderItems?.Count ?? 0;
+
+            <tr>
+                <td>@order.OrderId</td>
+                <td>@order.OrderDate.ToShortDateString()</td>
+                <td>
+                    @if (order.CustomerInfo != null)
+                    {
+                        @($"{order.CustomerInfo.FirstName} {order.CustomerInfo.LastName}")
+                    }
+                    else
+                    {
+                        @("Brak danych klienta")
+                    }
+                </td>
+                <td>@order.TotalPrice</td>
+                <td>@itemCount</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@order.OrderId" class="btn btn-sm btn-info">
+                        Szczegóły
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

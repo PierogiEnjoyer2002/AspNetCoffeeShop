@@ -1,0 +1,47 @@
+﻿@model List<CoffeeShopMVC.Models.CartItem>
+
+@{
+    ViewData["Title"] = "Twój koszyk";
+}
+
+<h2>Twój koszyk</h2>
+
+@if (!Model.Any())
+{
+    <p>Twój koszyk jest pusty.</p>
+}
+else
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Nazwa produktu</th>
+                <th>Ilość</th>
+                <th>Cena (szt.)</th>
+                <th>Usuń</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.ProductName</td>
+                    <td>@item.Quantity</td>
+                    <td>@item.Price</td>
+                    <td>
+                        <a asp-controller="Cart" asp-action="RemoveItem" asp-route-productId="@item.ProductId"
+                           class="btn btn-danger">Usuń</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <p>
+        Łączna kwota: <strong>
+            @Model.Sum(x => x.Price * x.Quantity)
+        </strong>
+    </p>
+
+    <a class="btn btn-primary" asp-controller="Orders" asp-action="CreateOrder">Złóż zamówienie</a>
+}

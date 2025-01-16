@@ -12,6 +12,6 @@ namespace CoffeeShopMVC.Models
         public string Name { get; set; }
 
         // Relacja: Jedna kategoria -> wiele produktów
-        public List<Product> Products { get; set; }
+        public List<Product>? Products { get; set; }
     }
 }

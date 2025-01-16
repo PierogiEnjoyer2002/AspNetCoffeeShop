@@ -8,10 +8,10 @@ namespace CoffeeShopMVC.Models
 
         [Required(ErrorMessage = "Nazwa produktu jest wymagana")]
         [StringLength(100, ErrorMessage = "Nazwa produktu nie może przekraczać 100 znaków")]
-        public string Name { get; set; }
+        public required string Name { get; set; }
 
         [StringLength(500, ErrorMessage = "Opis nie może przekraczać 500 znaków")]
-        public string Description { get; set; }
+        public required string Description { get; set; }
 
         [Range(0.01, 9999.99, ErrorMessage = "Cena musi być większa od 0 i mniejsza niż 9999.99")]
         public decimal Price { get; set; }
@@ -21,6 +21,6 @@ namespace CoffeeShopMVC.Models
 
         // Relacja do Category (wiele Products -> jedna Category)
         public int CategoryId { get; set; }
-        public Category Category { get; set; }
+        public Category? Category { get; set; }
     }
 }
