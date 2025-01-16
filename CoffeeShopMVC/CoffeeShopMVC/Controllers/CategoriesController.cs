@@ -150,6 +150,7 @@ namespace CoffeeShopMVC.Controllers
             if (category != null)
             {
                 _context.Categories.Remove(category);
+                await _context.SaveChangesAsync();
             }
 
             await _context.SaveChangesAsync();
