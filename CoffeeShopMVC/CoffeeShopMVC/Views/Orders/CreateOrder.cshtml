@@ -1,0 +1,40 @@
+﻿@model CoffeeShopMVC.Models.CustomerInfo
+
+@{
+    ViewData["Title"] = "Złóż zamówienie";
+}
+
+<h2>Złóż zamówienie - dane dostawy</h2>
+
+<form asp-action="CreateOrder" method="post">
+    @Html.AntiForgeryToken()
+
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="mb-3">
+        <label asp-for="FirstName"></label>
+        <input asp-for="FirstName" class="form-control" />
+        <span asp-validation-for="FirstName" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="LastName"></label>
+        <input asp-for="LastName" class="form-control" />
+        <span asp-validation-for="LastName" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Phone"></label>
+        <input asp-for="Phone" class="form-control" />
+        <span asp-validation-for="Phone" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="DeliveryAddress"></label>
+        <input asp-for="DeliveryAddress" class="form-control" />
+        <span asp-validation-for="DeliveryAddress" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Złóż zamówienie</button>
+    <a asp-controller="Cart" asp-action="Index" class="btn btn-secondary">Wróć do koszyka</a>
+</form>

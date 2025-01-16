@@ -23,8 +23,15 @@ builder.Services.AddRazorPages();
 
 builder.Services.AddTransient<IEmailSender, DummyEmailSender>();
 
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30);
+});
+
 
 var app = builder.Build();
+
+app.UseSession();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

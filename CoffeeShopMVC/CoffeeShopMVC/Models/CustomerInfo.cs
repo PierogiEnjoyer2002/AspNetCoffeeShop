@@ -19,6 +19,6 @@ namespace CoffeeShopMVC.Models
         public string DeliveryAddress { get; set; }
 
         // Relacja 1-1 z Order (jedna encja CustomerInfo -> jedno Order)
-        public Order Order { get; set; }
+        public Order? Order { get; set; }
     }
 }

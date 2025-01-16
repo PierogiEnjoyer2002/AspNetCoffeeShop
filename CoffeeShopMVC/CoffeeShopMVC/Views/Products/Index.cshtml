@@ -24,6 +24,10 @@
                         Cena: @item.Price <br />
                         Kategoria: @item.Category?.Name
                     </p>
+                    <a asp-controller="Cart" asp-action="AddToCart" asp-route-productId="@item.ProductId"
+                       class="btn btn-primary">
+                        Dodaj do koszyka
+                    </a>
                     <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.ProductId">Szczegóły</a>
                     @if (isAdmin)
                     {

@@ -44,6 +44,9 @@
                     else if (isAdmin)
                     {
                         <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("AdminIndex","Orders")">Zamówienia (Admin)</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="@Url.Action("Index","Categories")">Kategorie (Admin)</a>
                         </li>
                         <li class="nav-item">
@@ -55,10 +58,14 @@
                     else
                     {
                         <li class="nav-item">
+                            <a class="nav-link" asp-controller="Cart" asp-action="Index">Koszyk</a>
+                        </li>
+                        <li class="nav-item">
                             <form method="post" asp-area="Identity" asp-page="/Account/Logout" style="display:inline;">
                                 <button type="submit" class="nav-link btn btn-link">Wyloguj</button>
                             </form>
                         </li>
+
                     }
 
                 </ul>
